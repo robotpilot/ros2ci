@@ -18,6 +18,8 @@ FROM $FROM_IMAGE
 ARG ROS_DISTRO=dashing
 ENV ROS_DISTRO=$ROS_DISTRO
 
+RUN apt-get install -y curl && curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
+
 # install building tools
 RUN apt-get -qq update && \
     apt-get -qq upgrade -y && \
